@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: openai
+
+  ai:
+    bedrock:
+      aws:
+        region: us-east-1
+        access-key: ${ACCESS_KEY}
+        secret-key: ${SECRET_KEY}
+
+      converse:
+        chat:
+          options:
+            model: anthropic.claude-3-haiku-20240307-v1:0
+
+logging:
+  pattern:
+    console: "%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n"
