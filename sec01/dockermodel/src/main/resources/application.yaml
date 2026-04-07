@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: openai
+  ai:
+    openai:
+      chat:
+        base-url: http://localhost:12434/engines
+        options:
+          model: ai/qwen3.5:4B-UD-Q4_K_XL
+      api-key: dummy
+
+
+logging:
+  pattern:
+    console: "%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n"
