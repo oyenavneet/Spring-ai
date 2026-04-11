@@ -23,3 +23,16 @@
 | System    | Instructions for how the LLM should behave. e.g: "Be formal." |
 | Assistant | The LLM's response. e.g: "Sure! Why did the cat ..."          |
 | Function  | Special instructions to run a function or fetch data          |
+
+### Prompt Templates in Spring AI
+** Why use Prompt Templates **
+- Simplified prompt constructions
+- Make prompts reusable and maintainable
+- Keeps logic and text cleanly separated
+- Supports parameterized placeholders like {customerName}
+
+### Prompt Stuffing
+It gives LLM an open book before answering a questing
+- You include contextual data or reference text along with the user's questions.
+- The LLM uses this extra content to answer the question accurately - event if it want not pre-trained on the topic
+- This technique is also known as in-context learning or retrieval-augmented prompting (when done programmatically)
