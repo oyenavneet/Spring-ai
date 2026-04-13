@@ -14,12 +14,16 @@ public class ChatClientConfig {
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder chatClientBuilder) {
-        ChatOptions chatOptions = ChatOptions.builder().model("gpt-4.1-mini")
-                .temperature(0.8).build();
+        // using ChatOptions.builder() we can create all the Options available
+        ChatOptions chatOptions = ChatOptions.builder()
+                .model("gpt-4.1-mini")
+                //.maxTokens(100)
+                .temperature(0.8)
+                .build();
 
         return chatClientBuilder
-                .defaultOptions(chatOptions)
-                .defaultAdvisors(List.of(new SimpleLoggerAdvisor(),
+                .defaultOptions(chatOptions) // configure chat options
+                .defaultAdvisors(List.of(new SimpleLoggerAdvisor(), // configures default advisors
                         new TokenUsageAuditAdvisor()))
                 .defaultSystem("""
                         You are an internal HR assistant. Your role is to help\s

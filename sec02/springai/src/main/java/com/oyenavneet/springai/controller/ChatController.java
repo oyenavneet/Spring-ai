@@ -1,6 +1,7 @@
 package com.oyenavneet.springai.controller;
 
 
+import com.oyenavneet.springai.advisors.TokenUsageAuditAdvisor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class ChatController {
     public String openaiChat(@RequestParam("message") String message) {
         return chatClient
                 .prompt()
+//                .advisors(new TokenUsageAuditAdvisor())  // advisor can in injected directly in controller
                 .system("""
                          You are an internal IT helpdesk assistant. Your role is to assist\s
                          employees with IT-related issues such as resetting passwords,\s

@@ -36,3 +36,39 @@ It gives LLM an open book before answering a questing
 - You include contextual data or reference text along with the user's questions.
 - The LLM uses this extra content to answer the question accurately - event if it want not pre-trained on the topic
 - This technique is also known as in-context learning or retrieval-augmented prompting (when done programmatically)
+
+### Advisors
+In Spring AI,advisors are like interceptors or middleware for yor prompt flow.
+
+**Advisors allow you to:**
+
+- Pre-process or post-process prompt data.
+- Add custom logging or auditing
+- Inject additional behavior without modifying core logic.
+- Chain multiple behaviors cleanly
+
+*User -> ChatClient -> [Advisors] -> LLM -> Response -> [Advisors] -> User*
+
+***Spring AI Provide some build-in-advisors, and you can create your own.***
+
+- SimpleLoggerAdvisor
+- SafeGuardAdvisor
+- PromptChatMemoryAdvisor etc.
+
+### ChatOptions in Spring Ai
+
+- ChatOptions is a configuration in Spring AI that allows you to customize how a language behaves during chat/completion calls.
+- Think of it like a "tunning panel" for you AI model - ypu can set limits, adjust creativity, randomness, verbosity, control response, length, and more.
+
+**Key Chat Options**
+
+| Options           | Meaning                                        |
+|-------------------|------------------------------------------------|
+| model             | Which LLM model to use e.g: gpt-4 etc          |
+| frequencyPenalty  | Reduces repetition. Higher = less repetition   |
+| presencePenalty   | Encourages mentioning new topics.              |
+| temperature       | Controls creativity, 0 = focused, 1 = random   |
+| topP              | Controls randomness (nucleus sampling)         |
+| stopSequences     | Stop generating when specific phrase are found | 
+| maxTokens         | Maximum number of tokens in the reply          |
+| topK              | controls how many top choices are considered   |

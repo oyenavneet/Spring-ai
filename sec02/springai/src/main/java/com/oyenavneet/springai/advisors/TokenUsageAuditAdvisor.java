@@ -16,11 +16,11 @@ public class TokenUsageAuditAdvisor implements CallAdvisor {
     public ChatClientResponse adviseCall(ChatClientRequest chatClientRequest, CallAdvisorChain callAdvisorChain) {
         ChatClientResponse chatClientResponse = callAdvisorChain.nextCall(chatClientRequest);
         ChatResponse chatResponse = chatClientResponse.chatResponse();
-        if(chatResponse.getMetadata() != null) {
+        if (chatResponse.getMetadata() != null) {
             Usage usage = chatResponse.getMetadata().getUsage();
 
-            if(usage != null) {
-                logger.info("Token usage details : {}",usage.toString());
+            if (usage != null) {
+                logger.info("Token usage details : {}", usage.toString());
             }
         }
         return chatClientResponse;
