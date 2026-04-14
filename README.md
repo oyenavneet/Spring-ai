@@ -72,3 +72,21 @@ In Spring AI,advisors are like interceptors or middleware for yor prompt flow.
 | stopSequences     | Stop generating when specific phrase are found | 
 | maxTokens         | Maximum number of tokens in the reply          |
 | topK              | controls how many top choices are considered   |
+
+## Chat Memory using Spring AI
+
+- LLMs don't remember past chats. Each interaction is like fresh start - no memory!
+- This can be a problem if you want to maintain conversation context across multiple interactions.
+
+**Spring AI's Chat Memory**
+
+- Spring AI gives us the ChatMemory abstractions to store and manage conversation history.
+- Messages are saved using a ChatMemoryRepository - similar to storage engine behind the scenes
+
+**Flexible Memory Strategies**
+
+- Keep only last N messages
+- Store message for a specific time window
+- Retain message until a token limit is reached
+
+**With ChatMemory, LLMs can behave more like a human - remember the past to improve the response**
