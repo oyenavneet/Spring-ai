@@ -90,3 +90,12 @@ In Spring AI,advisors are like interceptors or middleware for yor prompt flow.
 - Retain message until a token limit is reached
 
 **With ChatMemory, LLMs can behave more like a human - remember the past to improve the response**
+
+
+## RAG (Retrieval-Augmented Generation)
+**Using RAG we are giving LLMs Superpowers with External Knowledge**
+
+- We give a prompt
+- RAG searches a knowledge base for relevant documents or information
+- These fetched data/documents are added as context to the LLM
+- Then the LLM generates a more accurate and grounded answer 
