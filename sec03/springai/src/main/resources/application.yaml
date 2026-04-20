@@ -1,4 +1,8 @@
 spring:
+  docker:
+    compose:
+      stop:
+        command: down
   h2:
     console:
       enabled: true
@@ -11,6 +15,12 @@ spring:
     password: 1234
 
   ai:
+    vectorstore:
+      qdrant:
+        initialize-schema: true
+        host: localhost
+        port: 6334
+        collection-name: oyenavneet
     openai:
       api-key: ${OPENAI_API_KEY}
     chat:
