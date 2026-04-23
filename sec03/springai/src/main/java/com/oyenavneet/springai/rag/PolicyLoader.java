@@ -28,6 +28,9 @@ public class PolicyLoader {
     public void loadPDF() {
         TikaDocumentReader tikaDocumentReader = new TikaDocumentReader(policyFile);
         List<Document> docs = tikaDocumentReader.get();
+
+        // splitting the doc text into chunks and configuring max num of chunks
+        // this will help RAG to send required chunks of Context to AI model not full document text, which will increase the coast/more token required
         TextSplitter textSplitter =
                 TokenTextSplitter.builder().withChunkSize(200).withMaxNumChunks(400).build();
         vectorStore.add(textSplitter.split(docs));
